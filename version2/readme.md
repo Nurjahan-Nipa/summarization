@@ -7,14 +7,9 @@ This repository contains source code, job scripts, datasets, and outputs related
 ## 📁 Project Structure
 
 ```
-.
-├── app.py                          # Optional app (e.g., Streamlit frontend)
-├── chrome_extension/              # Chrome extension (optional utility)
-├── code/                          # Core summarization, entailment, and evaluation code
-├── models/                        # Model-related configurations or pretrained checkpoints
-├── data.pkl                       # Preprocessed Stack Overflow dataset
+
 ├── llama3_*.py                    # LLaMA-3 model inference scripts
-├── llama8b_fp8_*.py               # LLaMA-2 8B FP8 inference scripts
+├── llama8b_fp8_*.py               # LLaMA-3 8B FP8 inference scripts
 ├── *.csv                          # Model predictions, summaries, and evaluation metrics
 ├── model_stats*.csv               # ROUGE/BERTScore/BLEU results
 ├── slurm-*.err-qbd*               # SLURM error logs
@@ -31,11 +26,11 @@ This repository contains source code, job scripts, datasets, and outputs related
 |--------------------------------|---------------------------------------------|
 | `llama3_70b.py`                | Summarization using LLaMA-3.3 70B           |
 | `llama3_8b_base.py`            | Summarization using LLaMA-3.1 8B            |
-| `llama8b_fp8_fewshot.py`       | Few-shot summarization using LLaMA-2 8B FP8 |
+| 'llama8b_few_shot_v2.py'       | Few-shot summarization using LLaMA-3 8B FP8 |
 | `llama8b_fp8_oneshot.py`       | One-shot summarization                     |
 | `llama8b_fp8_twoshot.py`       | Two-shot summarization                     |
 | `llama8b_zero_shot.py`         | Zero-shot summarization                    |
-| `app.py`                       | Optional interface or experiment launcher   |
+
 
 ---
 
