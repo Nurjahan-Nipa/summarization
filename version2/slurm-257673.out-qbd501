@@ -1,0 +1,208 @@
+Sun Apr 20 14:15:28 CDT 2025
+Starting LLaMA 3.1 8B inference job with base model...
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu----- -----timestamp-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st                 CDT
+ 1  0      0 514806272 1105536 7446364    0    0     0     0    0    0  1  1 99  0  0 2025-04-20 14:15:28
+index, name, utilization.gpu [%], memory.used [MiB], memory.total [MiB]
+0, NVIDIA A100 80GB PCIe, 0 %, 4 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 4 MiB, 81920 MiB
+INFO 04-20 14:17:06 [__init__.py:239] Automatically detected platform cuda.
+INFO 04-20 14:17:42 [config.py:585] This model supports multiple tasks: {'generate', 'embed', 'reward', 'classify', 'score'}. Defaulting to 'generate'.
+INFO 04-20 14:17:42 [config.py:1519] Defaulting to use mp for distributed inference
+INFO 04-20 14:17:42 [config.py:1697] Chunked prefill is enabled with max_num_batched_tokens=8192.
+WARNING 04-20 14:17:42 [cuda.py:95] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+INFO 04-20 14:17:46 [core.py:54] Initializing a V1 LLM engine (v0.8.2) with config: model='meta-llama/Llama-3.1-8B-Instruct', speculative_config=None, tokenizer='meta-llama/Llama-3.1-8B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=2048, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=2, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=fp8, enforce_eager=True, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar', reasoning_backend=None), observability_config=ObservabilityConfig(show_hidden_metrics=False, otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=None, served_model_name=meta-llama/Llama-3.1-8B-Instruct, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=False, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[],"max_capture_size":0}
+WARNING 04-20 14:17:46 [multiproc_worker_utils.py:306] Reducing Torch parallelism from 4 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 04-20 14:17:47 [shm_broadcast.py:259] vLLM message queue communication handle: Handle(local_reader_ranks=[0, 1], buffer_handle=(2, 10485760, 10, 'psm_3f807ee1'), local_subscribe_addr='ipc:///tmp/4a95445f-4b84-4377-9807-ab47401f4946', remote_subscribe_addr=None, remote_addr_ipv6=False)
+WARNING 04-20 14:17:58 [utils.py:2321] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x15358dc2cd50>
+[1;36m(VllmWorker rank=0 pid=2749488)[0;0m INFO 04-20 14:17:58 [shm_broadcast.py:259] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_0b70ef8f'), local_subscribe_addr='ipc:///tmp/d9a8e024-28b6-48bf-a3d0-94d011b9e122', remote_subscribe_addr=None, remote_addr_ipv6=False)
+WARNING 04-20 14:17:59 [utils.py:2321] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x15358db472d0>
+[1;36m(VllmWorker rank=1 pid=2749506)[0;0m INFO 04-20 14:17:59 [shm_broadcast.py:259] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_242c0f97'), local_subscribe_addr='ipc:///tmp/8a506a84-2672-4b5d-9526-ef92178d7ce1', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=1 pid=2749506)[0;0m INFO 04-20 14:18:01 [utils.py:931] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=0 pid=2749488)[0;0m INFO 04-20 14:18:01 [utils.py:931] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=1 pid=2749506)[0;0m INFO 04-20 14:18:01 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=0 pid=2749488)[0;0m INFO 04-20 14:18:01 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=1 pid=2749506)[0;0m INFO 04-20 14:18:04 [custom_all_reduce_utils.py:244] reading GPU P2P access cache from /home/nurjahan/.cache/vllm/gpu_p2p_access_cache_for_0,1.json
+[1;36m(VllmWorker rank=0 pid=2749488)[0;0m INFO 04-20 14:18:04 [custom_all_reduce_utils.py:244] reading GPU P2P access cache from /home/nurjahan/.cache/vllm/gpu_p2p_access_cache_for_0,1.json
+[1;36m(VllmWorker rank=0 pid=2749488)[0;0m INFO 04-20 14:18:04 [shm_broadcast.py:259] vLLM message queue communication handle: Handle(local_reader_ranks=[1], buffer_handle=(1, 4194304, 6, 'psm_1e21e32e'), local_subscribe_addr='ipc:///tmp/8f048558-a449-4229-95cf-993ba6e3b9b0', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=0 pid=2749488)[0;0m INFO 04-20 14:18:04 [parallel_state.py:954] rank 0 in world size 2 is assigned as DP rank 0, PP rank 0, TP rank 0
+[1;36m(VllmWorker rank=1 pid=2749506)[0;0m INFO 04-20 14:18:04 [parallel_state.py:954] rank 1 in world size 2 is assigned as DP rank 0, PP rank 0, TP rank 1
+[1;36m(VllmWorker rank=1 pid=2749506)[0;0m INFO 04-20 14:18:04 [cuda.py:220] Using Flash Attention backend on V1 engine.
+[1;36m(VllmWorker rank=0 pid=2749488)[0;0m INFO 04-20 14:18:04 [cuda.py:220] Using Flash Attention backend on V1 engine.
+[1;36m(VllmWorker rank=1 pid=2749506)[0;0m INFO 04-20 14:18:04 [gpu_model_runner.py:1174] Starting to load model meta-llama/Llama-3.1-8B-Instruct...
+[1;36m(VllmWorker rank=0 pid=2749488)[0;0m INFO 04-20 14:18:04 [gpu_model_runner.py:1174] Starting to load model meta-llama/Llama-3.1-8B-Instruct...
+[1;36m(VllmWorker rank=1 pid=2749506)[0;0m WARNING 04-20 14:18:06 [topk_topp_sampler.py:63] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=0 pid=2749488)[0;0m WARNING 04-20 14:18:06 [topk_topp_sampler.py:63] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=0 pid=2749488)[0;0m INFO 04-20 14:18:07 [weight_utils.py:265] Using model weights format ['*.safetensors']
+[1;36m(VllmWorker rank=1 pid=2749506)[0;0m INFO 04-20 14:18:07 [weight_utils.py:265] Using model weights format ['*.safetensors']
+[1;36m(VllmWorker rank=0 pid=2749488)[0;0m INFO 04-20 14:18:13 [loader.py:447] Loading weights took 6.05 seconds
+[1;36m(VllmWorker rank=1 pid=2749506)[0;0m INFO 04-20 14:18:13 [loader.py:447] Loading weights took 5.67 seconds
+[1;36m(VllmWorker rank=0 pid=2749488)[0;0m WARNING 04-20 14:18:13 [marlin_utils_fp8.py:54] Your GPU does not have native support for FP8 computation but FP8 quantization is being used. Weight-only FP8 compression will be used leveraging the Marlin kernel. This may degrade performance for compute-heavy workloads.
+[1;36m(VllmWorker rank=1 pid=2749506)[0;0m WARNING 04-20 14:18:13 [marlin_utils_fp8.py:54] Your GPU does not have native support for FP8 computation but FP8 quantization is being used. Weight-only FP8 compression will be used leveraging the Marlin kernel. This may degrade performance for compute-heavy workloads.
+[1;36m(VllmWorker rank=1 pid=2749506)[0;0m INFO 04-20 14:18:14 [gpu_model_runner.py:1186] Model loading took 4.2646 GB and 10.179992 seconds
+[1;36m(VllmWorker rank=0 pid=2749488)[0;0m INFO 04-20 14:18:14 [gpu_model_runner.py:1186] Model loading took 4.2646 GB and 10.176107 seconds
+INFO 04-20 14:18:29 [kv_cache_utils.py:566] GPU KV cache size: 990,704 tokens
+INFO 04-20 14:18:29 [kv_cache_utils.py:569] Maximum concurrency for 2,048 tokens per request: 483.74x
+INFO 04-20 14:18:29 [kv_cache_utils.py:566] GPU KV cache size: 990,704 tokens
+INFO 04-20 14:18:29 [kv_cache_utils.py:569] Maximum concurrency for 2,048 tokens per request: 483.74x
+INFO 04-20 14:18:29 [core.py:151] init engine (profile, create kv cache, warmup model) took 14.80 seconds
+ 3  0      0 490233760 1105536 26501800    0    0     0    33 7157 23887  2  0 98  0  0 2025-04-20 14:20:28
+0, NVIDIA A100 80GB PCIe, 77 %, 69632 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 43 %, 68413 MiB, 81920 MiB
+ 3  0      0 490218112 1105536 26507940    0    0     0    27 4497 2438  5  0 95  0  0 2025-04-20 14:25:28
+0, NVIDIA A100 80GB PCIe, 70 %, 69664 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 44 %, 68445 MiB, 81920 MiB
+ 3  0      0 490152736 1105536 26514228    0    0     0    29 4496 2469  5  0 95  0  0 2025-04-20 14:30:28
+0, NVIDIA A100 80GB PCIe, 62 %, 69702 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 44 %, 68483 MiB, 81920 MiB
+ 3  0      0 490002880 1105536 26520304    0    0     0    26 4536 2495  5  0 95  0  0 2025-04-20 14:35:28
+0, NVIDIA A100 80GB PCIe, 55 %, 69702 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 46 %, 68483 MiB, 81920 MiB
+ 3  0      0 489828864 1105536 26526352    0    0     0    27 4525 2422  5  0 95  0  0 2025-04-20 14:40:28
+0, NVIDIA A100 80GB PCIe, 78 %, 69702 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 43 %, 68483 MiB, 81920 MiB
+ 3  0      0 489633568 1105536 26532432    0    0     0    27 4519 2453  5  0 95  0  0 2025-04-20 14:45:28
+0, NVIDIA A100 80GB PCIe, 86 %, 69702 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 46 %, 68483 MiB, 81920 MiB
+ 3  0      0 489511744 1105540 26538540    0    0     0    27 4476 2488  5  0 95  0  0 2025-04-20 14:50:28
+0, NVIDIA A100 80GB PCIe, 88 %, 69746 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 43 %, 68527 MiB, 81920 MiB
+ 3  0      0 489478016 1105540 26446908    0    0     0    43 4611 4070  5  0 95  0  0 2025-04-20 14:55:28
+0, NVIDIA A100 80GB PCIe, 79 %, 69746 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 42 %, 68527 MiB, 81920 MiB
+0, NVIDIA A100 80GB PCIe, 70 %, 69792 MiB, 81920 MiB
+ 4  0      0 489381920 1105540 26453344    0    0     0    29 4492 2460  5  0 95  0  0 2025-04-20 15:00:28
+1, NVIDIA A100 80GB PCIe, 41 %, 68573 MiB, 81920 MiB
+0, NVIDIA A100 80GB PCIe, 84 %, 69792 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 46 %, 68573 MiB, 81920 MiB
+ 3  0      0 489264128 1105540 26459416    0    0     0    26 4473 2415  5  0 95  0  0 2025-04-20 15:05:28
+0, NVIDIA A100 80GB PCIe, 72 %, 69792 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 45 %, 68573 MiB, 81920 MiB
+ 3  0      0 489182592 1105540 26465476    0    0     0    28 4576 2552  5  0 95  0  0 2025-04-20 15:10:28
+0, NVIDIA A100 80GB PCIe, 72 %, 69792 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 45 %, 68573 MiB, 81920 MiB
+ 3  0      0 489168672 1105540 26471544    0    0     0    26 4564 2423  5  0 95  0  0 2025-04-20 15:15:28
+
+ Summarization completed and saved to llama3_8b_base_run.csv
+
+📊 ROUGE Scores:
+ROUGE-1 F1: 0.3719
+ROUGE-2 F1: 0.3400
+ROUGE-L F1: 0.3612
+calculating scores...
+computing bert embedding.
+computing greedy matching.
+done in 18.85 seconds, 166.05 sentences/sec
+
+📊 BERTScore:
+Precision: 0.5691
+Recall:    0.5574
+F1:        0.5627
+
+?? BLEU Score:
+BLEU: 0.2696
+
+📥 Stats saved to model_stats.csv
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 489179328 1105540 27723972    0    0     0    30 2795 1667  2  0 98  0  0 2025-04-20 15:20:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 510419552 1105540 8094580    0    0     0    28 1113  570  0  0 100  0  0 2025-04-20 15:25:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 510418368 1105540 8100508    0    0     0    29 1081  544  0  0 100  0  0 2025-04-20 15:30:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 510412928 1105540 8106460    0    0     0    26 1047  529  0  0 100  0  0 2025-04-20 15:35:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 510408320 1105540 8112388    0    0     0    27 1052  535  0  0 100  0  0 2025-04-20 15:40:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 510402272 1105540 8118316    0    0     0    26 1055  526  0  0 100  0  0 2025-04-20 15:45:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 510369216 1105540 8124288    0    0     0    30 1074  533  0  0 100  0  0 2025-04-20 15:50:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 510339616 1105540 8130180    0    0     0    28 1115  554  0  0 100  0  0 2025-04-20 15:55:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu----- -----timestamp-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st                 CDT
+ 0  0      0 510335040 1105540 8136112    0    0     0    29 1082  542  0  0 100  0  0 2025-04-20 16:00:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 510329312 1105540 8142076    0    0     0    27 1041  524  0  0 100  0  0 2025-04-20 16:05:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 510323744 1105540 8148052    0    0     0    27 1134  531  0  0 100  0  0 2025-04-20 16:10:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 510320640 1105540 8152668    0    0     0    26 1080  524  0  0 100  0  0 2025-04-20 16:15:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 510306080 1105540 8158420    0    0     0    28 1132  556  0  0 100  0  0 2025-04-20 16:20:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 511089120 1105540 7432852    0    0     0    42 1174  546  0  0 100  0  0 2025-04-20 16:25:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 511087744 1105540 7438772    0    0     0    29 1147  546  0  0 100  0  0 2025-04-20 16:30:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 511084096 1105540 7444708    0    0     0    25 1087  529  0  0 100  0  0 2025-04-20 16:35:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 511077472 1105540 7450668    0    0     0    27 1054  526  0  0 100  0  0 2025-04-20 16:40:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 511072288 1105540 7456568    0    0     0    25 1028  522  0  0 100  0  0 2025-04-20 16:45:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 511067264 1105540 7462496    0    0     0    26 1036  527  0  0 100  0  0 2025-04-20 16:50:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 511056512 1105540 7468436    0    0     0    26 1083  537  0  0 100  0  0 2025-04-20 16:55:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 511051456 1105540 7474416    0    0     0    29 1071  539  0  0 100  0  0 2025-04-20 17:00:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 511050080 1105540 7480344    0    0     0    26 1095  532  0  0 100  0  0 2025-04-20 17:05:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 511043104 1105540 7486320    0    0     0    29 1055  537  0  0 100  0  0 2025-04-20 17:10:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 511037664 1105540 7492280    0    0     0    25 1051  522  0  0 100  0  0 2025-04-20 17:15:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 511023776 1105540 7498236    0    0     0    29 1197  555  0  0 100  0  0 2025-04-20 17:20:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 511017632 1105540 7504156    0    0     0    27 1130  553  0  0 100  0  0 2025-04-20 17:25:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 511014368 1105540 7510220    0    0     0    29 1095  548  0  0 100  0  0 2025-04-20 17:30:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 511010752 1105540 7516168    0    0     0    26 1096  528  0  0 100  0  0 2025-04-20 17:35:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 511006720 1105540 7522128    0    0     0    26 1065  537  0  0 100  0  0 2025-04-20 17:40:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu----- -----timestamp-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st                 CDT
+ 0  0      0 511000576 1105540 7528032    0    0     0    25 1051  533  0  0 100  0  0 2025-04-20 17:45:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 510994368 1105540 7533972    0    0     0    27 1100  520  0  0 100  0  0 2025-04-20 17:50:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 511081984 1105540 7441436    0    0     0    43 1103  544  0  0 100  0  0 2025-04-20 17:55:28
+0, NVIDIA A100 80GB PCIe, 0 %, 4567 MiB, 81920 MiB
+1, NVIDIA A100 80GB PCIe, 0 %, 7 MiB, 81920 MiB
+ 0  0      0 511076640 1105540 7447392    0    0     0    29 1110  545  0  0 100  0  0 2025-04-20 18:00:28
