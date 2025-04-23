@@ -1,59 +1,100 @@
-This repository contains code, models, and data to use ASSORT_S and ASSORT_IS.
+# 🦙 LLaMA Summarization Experiments
 
-## Code
-To use ASSORT_s, go to `code/assort_s.ipynb`. To use ASSORT_is, go to `code/assort_is.ipynb`. One just needs to input the information of the SO post that needs to be summarized and the model would run to output a possibility of each sentence being important.
+This repository contains source code, job scripts, datasets, and outputs related to experiments on automatic summarization using LLaMA models (8B and 70B). The experiments involve few-shot, zero-shot, one-shot, and hybrid prompting strategies on a Stack Overflow summarization dataset. SLURM job logs are also included from HPC runs (e.g., QBD cluster).
 
-Specifically, if you want to run ASSORT_s, just fill in the following variables in the notebook:
-```python
-question_title = "This should be replaced with real question title."
-answer_body = "This should be replaced with SO post with html tags."
-question_tags = ["Java", "Python"]
+---
+
+## 📁 Project Structure
+
+```
+.
+├── app.py                          # Optional app (e.g., Streamlit frontend)
+├── chrome_extension/              # Chrome extension (optional utility)
+├── code/                          # Core summarization, entailment, and evaluation code
+├── models/                        # Model-related configurations or pretrained checkpoints
+├── data.pkl                       # Preprocessed Stack Overflow dataset
+├── llama3_*.py                    # LLaMA-3 model inference scripts
+├── llama8b_fp8_*.py               # LLaMA-2 8B FP8 inference scripts
+├── *.csv                          # Model predictions, summaries, and evaluation metrics
+├── model_stats*.csv               # ROUGE/BERTScore/BLEU results
+├── slurm-*.err-qbd*               # SLURM error logs
+├── slurm-*.out-qbd*               # SLURM output logs
+├── srun_*.sh                      # SLURM job scripts to launch experiments
+└── readme.md                      # This file
 ```
 
-For ASSORT_is, fill in these variables:
-```python
-answer_body = "This should be replaced with SO post with html tags."
+---
+
+## 🧠 Key Scripts
+
+| Script Name                     | Description                                 |
+|--------------------------------|---------------------------------------------|
+| `llama3_70b.py`                | Summarization using LLaMA-3.3 70B           |
+| `llama3_8b_base.py`            | Summarization using LLaMA-3.1 8B            |
+| `llama8b_fp8_fewshot.py`       | Few-shot summarization using LLaMA-2 8B FP8 |
+| `llama8b_fp8_oneshot.py`       | One-shot summarization                     |
+| `llama8b_fp8_twoshot.py`       | Two-shot summarization                     |
+| `llama8b_zero_shot.py`         | Zero-shot summarization                    |
+| `app.py`                       | Optional interface or experiment launcher   |
+
+---
+
+## 🧪 Running Experiments
+
+Use SLURM to submit jobs to the HPC cluster.
+
+```bash
+sbatch srun_llama3_70b.sh
+sbatch srun_llama8b_fp8_fewshot.s
 ```
 
-## Models
-The `models` folder contains models trained on our dataset. Specifically, `1.pkl`, `1.pkl`, and `1.pkl` are used to classify sentences from SO posts with different question types. `question_classifier.pkl` is used to classify questions.
+You can also run scripts directly (on smaller models or in debug mode):
 
-## Dataset structure
-Our dataset is in `dataset.pkl`. Specifically, we explain each field in the json below:
-
-- `answer_body` : Body of the answer post (String)
-- `question_id` : PostID of the parent question (Integer)
-- `question_type` : Question type of the parent question. 1 for conceptual questions, 2 for how-to questions, 3 for debug-corrective questions (Integer)
-- `question_tags`: Question tags (Array of String)
-- `question_title` : Title of the parent question (String)
-- `sentences` : List of sentence-level details, object structure below (Array of Objects)
-
-| Field        | Type           | Description                          |
-| ------------ | -------------- | ------------------------------------ |
-| `sentence`   | String         | The sentence itself                  |
-| `truth`      | Integer (0/1)  | 1: Summative, 0: Trivial             |
-
-Example:
-
-```json
-{
-    "answer_id": 12345,
-    "answer_body": "This is an example answer body.",
-    "question_id": 67890,
-    "question_type": 1,
-    "question_tags": ["Java"],
-    "question_title": "How to use JSON in Python?",
-    "sentences": [
-        {
-            "sentence": "You can use the json module to parse JSON data.",
-            "truth": 1
-        },
-        {
-            "sentence": "It's part of the standard library.",
-            "truth": 0
-        }
-    ]
-}
+```bash
+python llama8b_fp8_fewshot.py
 ```
 
+---
 
+## 📊 Outputs & Logs
+
+- `*.csv`: Summarized outputs, filtered summaries, and evaluation results.
+- `model_stats*.csv`: Contains evaluation metrics (ROUGE, BLEU, BERTScore).
+- `slurm-*.out`, `slurm-*.err`: SLURM logs for each experiment.
+
+---
+
+## 📦 Dataset
+
+- `data.pkl`: A pickle file containing Stack Overflow posts with fields like:
+  - `question_title`, `answer_body`, `question_tags`, `sentences`
+
+---
+
+## ⚙️ Environment
+
+Use a Python virtual environment or Conda environment with the dependencies listed in `requirements.txt` or `st-llm-env.yaml`.
+
+Activate your environment:
+```bash
+source ~/llama-env/bin/activate
+```
+
+Install required packages:
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 📬 Contact
+
+Maintained by **Nurjahan Nipa**  
+📧 Email: [nurja1@lsu.edu](mailto:nurja1@lsu.edu)
+
+---
+
+## 📌 Notes
+
+- Designed for use with QBD (LONI HPC) and similar clusters.
+- Ensure `transformers`, `torch`, `flash-attention`, and `datasets` are properly installed before running.
