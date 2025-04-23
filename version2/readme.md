@@ -21,18 +21,15 @@ This repository contains source code, job scripts, datasets, and outputs related
 ---
 
 ## 🧠 Key Scripts
+| Script Name               | Description                                 | Sbatch Script                   | Summary / Output File                |
+|--------------------------|---------------------------------------------|----------------------------------|--------------------------------------|
+| `llama3_70b.py`          | Summarization using LLaMA-3.3 70B           | `srun_llama3_70b.sh`             | `summaries_70b.csv`                  |
+| `llama3_8b_base.py`      | Summarization using LLaMA-3.1 8B            | `srun_llama3_8b.sh`              | `llama3_8b_base.csv`                 |
+| `llama8b_few_shot_v2.py` | Few-shot summarization using LLaMA-3 8B FP8 | `srun_llama8b_fp8_fewshot.s`     | `slurm-257904.out-qbd486`            |
+| `llama8b_fp8_oneshot.py` | One-shot summarization                      | `srun_llama8b_fp8_oneshot.s`     | `llama8b_fp8_one_shot.csv`           |
+| `llama8b_fp8_twoshot.py` | Two-shot summarization                      | `srun_llama8b_fp8_twoshot.s`     | `llama8b_fp8_twoshot.csv` *(assumed)*|
+| `llama8b_zero_shot.py`   | Zero-shot summarization                     | `srun_llama8b_zero_shot.sh`      | `llama8b_zero_shot_hybrid_20250421_005610.csv` |
 
-| Script Name                     | Description                                |Sbatch script                   |Summary               | 
-|--------------------------------|---------------------------------------------|............................... |.......................|
-| `llama3_70b.py`                | Summarization using LLaMA-3.3 70B           |                                |summaries_70b.csv       |
-| `llama3_8b_base.py`            | Summarization using LLaMA-3.1 8B            | |
-| 'llama8b_few_shot_v2.py'       | Few-shot summarization using LLaMA-3 8B FP8 | srun_llama8b_few_shot_v2.py    |output file: slurm-257904.out-qbd486 |
-| `llama8b_fp8_oneshot.py`       | One-shot summarization                     | | |
-| `llama8b_fp8_twoshot.py`       | Two-shot summarization                     | | |
-| `llama8b_zero_shot.py`         | Zero-shot summarization                    | | |
-
-
----
 
 ## 🧪 Running Experiments
 
