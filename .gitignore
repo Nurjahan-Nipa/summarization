@@ -1,0 +1,4 @@
+# .gitignore
+
+# Ignore private folder
+private_files/
