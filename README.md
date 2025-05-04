@@ -21,18 +21,53 @@ This repository contains the code, datasets, and SLURM job scripts for **HybridS
 
 ---
 
-## 📁 Directory Structure
+# Project Structure: HybridSum_v2
+
+This document outlines the folder and file organization of the `HybridSum_v2` project.
 
 ```
-.
-
-├── data.pkl                      # SoSum dataset (Stack Overflow answers)
-├── *.py                          # Main LLM execution scripts
-├── *.csv                         # Summary results and evaluation outputs
-├── slurm-*.out / slurm-*.err     # SLURM job logs
-├── srun_*.sh                     # SLURM batch job scripts
-└── README.md                     # Project overview
+HybridSum_v2/
+│
+├── HybridSum_v2.pdf                # Final report
+├── HybridSum_v2.pptx               # Project presentation slides
+├── README.md                       # Project overview and instructions
+├── data.csv                        # CSV dataset
+├── data.pkl                        # Pickled version of dataset
+├── bashrc_qbd.txt                  # Custom bashrc settings for QBD environment
+│
+├── final/                          # Final version scripts or outputs (contents unspecified)
+│
+├── llama3_8b_few/                  # Few-shot summarization with LLaMA 3.1 8B
+│   ├── llama8b_few_shot.py         # Few-shot inference script
+│   ├── llama3_8b_fewshot.csv       # Output CSV of few-shot summaries
+│   ├── slurm-<job>.err             # SLURM error log
+│   └── slurm-<job>.out             # SLURM output log
+│
+├── llama3_8b_zero/                 # Zero-shot summarization with LLaMA 3.1 8B
+│   ├── llama8b_zero_shot.py        # Zero-shot inference script
+│   ├── llama3_8b_zeroshot.csv      # Output CSV of zero-shot summaries
+│   ├── slurm-265587.err-qbd489     # SLURM error log for job on qbd489
+│   ├── slurm-265587.out-qbd489     # SLURM output log for job on qbd489
+│   └── srun_llama8b_zero_shot.sh   # Job submission script
+│
+├── llama3_70b/                     # Summarization with LLaMA 3.3 70B
+│   ├── *.py                        # Inference or experiment script(s)
+│   └── *.csv                       # Output CSV(s)
+│
+├── fewshot/                        # Possibly earlier few-shot experiments
+│   ├── *.py
+│   └── *.csv
+│
+├── version2/                       # Previous version (legacy scripts and results)
+│   ├── llama8b_fp8_fewshot.py      # FP8 few-shot script
+│   ├── llama8b_fp8_one_shot.py     # One-shot script
+│   ├── llama8b_fp8_twoshot.py      # Two-shot script
+│   ├── *.csv                       # Corresponding output files
+│   └── slurm-*.err / slurm-*.out   # Logs from prior jobs
+│
+└── 'private files'/                # Private or sensitive files (folder contains space)
 ```
+
 
 ---
 
