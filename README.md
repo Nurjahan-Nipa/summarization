@@ -35,13 +35,13 @@ HybridSum_v2/
 ├── data.pkl                        # Pickled version of dataset
 ├── bashrc_qbd.txt                  # Custom bashrc settings for QBD environment
 │
-├── final/                          # Final version scripts or outputs (contents unspecified)
-│
 ├── llama3_8b_few/                  # Few-shot summarization with LLaMA 3.1 8B
-│   ├── llama8b_few_shot.py         # Few-shot inference script
-│   ├── llama3_8b_fewshot.csv       # Output CSV of few-shot summaries
-│   ├── slurm-<job>.err             # SLURM error log
-│   └── slurm-<job>.out             # SLURM output log
+│   ├── llama8b_fp8_fewshot.py      # Few-shot inference script using FP8
+│   ├── llama8b_fp8_fewshot.csv     # Output CSV of FP8 few-shot summaries
+│   ├── model_stats.csv             # Model statistics for evaluation
+│   ├── slurm-265578.err-qbd491     # SLURM error log for job on qbd491
+│   ├── slurm-265578.out-qbd491     # SLURM output log for job on qbd491
+│   └── srun_llama8b_fp8_fewshot.sh # Job submission script
 │
 ├── llama3_8b_zero/                 # Zero-shot summarization with LLaMA 3.1 8B
 │   ├── llama8b_zero_shot.py        # Zero-shot inference script
@@ -51,12 +51,12 @@ HybridSum_v2/
 │   └── srun_llama8b_zero_shot.sh   # Job submission script
 │
 ├── llama3_70b/                     # Summarization with LLaMA 3.3 70B
-│   ├── *.py                        # Inference or experiment script(s)
-│   └── *.csv                       # Output CSV(s)
+│   ├── llama8b_fp8_70b.py          # Inference script using LLaMA 3.3 70B and FP8
+│   ├── llama3_70b_zeroshot.csv     # Output CSV of 70B zero-shot summaries
+│   ├── slurm-265643.err-qbd491     # SLURM error log for job on qbd491
+│   ├── slurm-265643.out-qbd491     # SLURM output log for job on qbd491
+│   └── srun_llama8b_fp8_70b.sh     # Job submission script
 │
-├── fewshot/                        # Possibly earlier few-shot experiments
-│   ├── *.py
-│   └── *.csv
 │
 ├── version2/                       # Previous version (legacy scripts and results)
 │   ├── llama8b_fp8_fewshot.py      # FP8 few-shot script
